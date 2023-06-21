@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 )
@@ -68,7 +68,7 @@ func main() {
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
 	} else {
-		data, _ := ioutil.ReadAll(resp.Body)
+		data, _ := io.ReadAll(resp.Body)
 		var responseBody ResponseBody
 		json.Unmarshal(data, &responseBody)
 		fmt.Println("AI response: ", responseBody.Candidates[0].Content)
