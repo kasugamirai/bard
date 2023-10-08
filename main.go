@@ -71,6 +71,6 @@ func main() {
 		data, _ := io.ReadAll(resp.Body)
 		var responseBody ResponseBody
 		json.Unmarshal(data, &responseBody)
-		fmt.Println("AI response: ", responseBody.Candidates[0].Content)
+		fmt.Println("response: ", responseBody.Candidates[0].Content)
 	}
 }
